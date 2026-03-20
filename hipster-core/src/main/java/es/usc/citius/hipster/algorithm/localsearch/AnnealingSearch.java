@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Random;
+import java.util.SecureRandom;
 
 import es.usc.citius.hipster.algorithm.Algorithm;
 import es.usc.citius.hipster.model.HeuristicNode;
@@ -116,7 +117,7 @@ public class AnnealingSearch<A, S, N extends HeuristicNode<A, S, Double, N>> ext
 					for (N successor : nodeExpander.expand(node)) {
 						successors.add(successor);
 					}
-					Random randIndGen = new Random();
+					Random randIndGen = new SecureRandom();
 					return successors.get(Math.abs(randIndGen.nextInt()) % successors.size());
 				}
 			};
