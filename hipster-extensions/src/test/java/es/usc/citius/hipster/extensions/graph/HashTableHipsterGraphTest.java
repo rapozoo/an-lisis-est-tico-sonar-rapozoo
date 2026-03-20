@@ -59,7 +59,10 @@ public class HashTableHipsterGraphTest {
 
     @Test
     public void testRemoveEdge() throws Exception {
-
+    	GraphEdge<String, Double> edgeToRemove = new UndirectedEdge<String, Double>("A", "B", 4d);
+        assertTrue(Sets.newHashSet(graph.edges()).contains(edgeToRemove));
+        graph.removeEdge(edgeToRemove);
+        assertFalse(Sets.newHashSet(graph.edges()).contains(edgeToRemove));
     }
 
     @Test
