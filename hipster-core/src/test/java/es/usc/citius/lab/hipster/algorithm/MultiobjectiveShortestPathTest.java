@@ -124,6 +124,12 @@ public class MultiobjectiveShortestPathTest {
 
         System.out.println(Hipster.createMultiobjectiveLS(GraphSearchProblem.startingFrom("v1").in(graph).useGenericCosts(bf).build()).search("v6"));
 
-        // TODO; Add solution verification
+        SearchResult searchResult = Hipster.createMultiobjectiveLS(GraphSearchProblem.startingFrom("v1").in(graph).useGenericCosts(bf).build()).search("v6");
+        List<String> caminosOptimos = searchResult.getOptimalPaths();
+        assertEquals(optimalPaths, 2, "Debería de haber 2 caminos");
+        List<String> expectedPath1 = java.util.Arrays.asList("v1", "v2", "v6");
+        List<String> expectedPath2 = java.util.Arrays.asList("v1", "v3", "v4", "v6");
+        Assert.assertTrue(optimalPaths.contains(expectedPath1), "Falta el camino v1 -> v2 -> v6");
+        Assert.assertTrue(optimalPaths.contains(expectedPath2), "Falta el camino v1 -> v3 -> v4 -> v6");
     }
 }
