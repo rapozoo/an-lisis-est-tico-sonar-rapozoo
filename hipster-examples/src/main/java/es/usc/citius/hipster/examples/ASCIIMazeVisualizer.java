@@ -408,6 +408,8 @@ public class ASCIIMazeVisualizer {
             case 4:
                 mazeTextArea.setText(Joiner.on('\n').join(Mazes.testMaze5));
                 break;
+            default: 
+            	throw new IllegalArgumentException("Índice de laberinto no válido: " + comboMazes.getSelectedIndex());
         }
     }
 
